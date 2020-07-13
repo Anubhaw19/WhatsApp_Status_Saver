@@ -14,6 +14,7 @@ import com.example.whatsappstatussaver.Fragments.ImageFragment;
 import com.example.whatsappstatussaver.Models.StatusModel;
 import com.example.whatsappstatussaver.R;
 
+import java.io.IOException;
 import java.util.List;
 
 import butterknife.BindView;
@@ -56,6 +57,23 @@ ImageFragment imageFragment;
 
             super(itemView);
             ButterKnife.bind(this,itemView);
+            imageButton_download.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    StatusModel statusModel=imageList.get(getAdapterPosition());
+                    if(statusModel !=null)
+                    {
+                        try {
+                            imageFragment.downloadImage(statusModel);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+            });
+
+
         }
     }
 }
