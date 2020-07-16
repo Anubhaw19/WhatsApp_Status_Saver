@@ -65,7 +65,7 @@ public class Gallery extends AppCompatActivity {
                 public void run() {
                     //listing all status files present in the [WhatsApp/Media/.Statuses] folder.
                     File[] statusFiles = MyConstants.STATUS.listFiles();
-                    if(statusFiles.length==0) //checking empty files.
+                    if(statusFiles.length==0) //checking empty files. test comment added
                     {
                         Toast.makeText(Gallery.this,"Nothing is Saved",Toast.LENGTH_LONG).show();
 
