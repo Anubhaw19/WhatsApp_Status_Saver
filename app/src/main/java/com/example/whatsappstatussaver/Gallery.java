@@ -1,6 +1,8 @@
 package com.example.whatsappstatussaver;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,6 +14,7 @@ import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.whatsappstatussaver.Adapters.GalleryAdapter;
@@ -32,6 +35,8 @@ public class Gallery extends AppCompatActivity {
     RecyclerView recyclerView;
     @BindView(R.id.proBar)
     ProgressBar progressBar;
+    @BindView(R.id.gallery_toolbar)
+    Toolbar toolbar;
 
     ArrayList<StatusModel> imageModelArrayList;
     Handler handler = new Handler();
@@ -43,8 +48,9 @@ public class Gallery extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
 
-        ButterKnife.bind(this);
 
+        ButterKnife.bind(this);
+        toolbar.setTitle("Saved Images-Videos");
         imageModelArrayList = new ArrayList<>();
 
         recyclerView.setHasFixedSize(true);
@@ -59,6 +65,11 @@ public class Gallery extends AppCompatActivity {
                 public void run() {
                     //listing all status files present in the [WhatsApp/Media/.Statuses] folder.
                     File[] statusFiles = MyConstants.STATUS.listFiles();
+                    if(statusFiles.length==0)
+                    {
+                        Toast.makeText(Gallery.this,"Nothing is Saved",Toast.LENGTH_LONG).show();
+
+                    }
 
                     if (statusFiles != null && statusFiles.length > 0) {
                         Arrays.sort(statusFiles);
