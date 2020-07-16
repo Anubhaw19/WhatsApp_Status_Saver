@@ -1,12 +1,15 @@
 package com.example.whatsappstatussaver.Adapters;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -60,6 +63,7 @@ ImageFragment imageFragment;
             imageButton_download.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    imageButton_download.setBackgroundResource(R.drawable.ic_done);
                     StatusModel statusModel=imageList.get(getAdapterPosition());
                     if(statusModel !=null)
                     {
