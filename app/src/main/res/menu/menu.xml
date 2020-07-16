@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item
+    android:id="@+id/item1"
+    android:title="test"
+    android:icon="@drawable/photo_lib"
+    app:showAsAction="always"/>
+    <item
+        android:id="@+id/item2"
+        android:title="Rate us"
+        android:icon="@drawable/ic_save"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/item3"
+        android:title="about us"
+        android:icon="@drawable/ic_save"
+        app:showAsAction="never"/>
+
+</menu>

@@ -156,4 +156,5 @@ public class ImageFragment extends Fragment {
         source.close();
         destination.close();
     }
+
 }

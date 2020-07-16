@@ -27,9 +27,10 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:src="@drawable/ic_download"
-                android:background="#fcbf49"
-                android:padding="@dimen/_2sdp"/>
+                android:src="@drawable/share"
+                android:background="#ffffff"
+                android:padding="@dimen/_2sdp"
+                android:elevation="@dimen/_10sdp"/>
 
         </RelativeLayout>
     </RelativeLayout>

@@ -1,10 +1,17 @@
 package com.example.whatsappstatussaver;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import com.example.whatsappstatussaver.Adapters.PagerAdapter;
 import com.google.android.gms.ads.AdRequest;
@@ -43,6 +50,35 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch(item.getItemId())
+        {
+            case R.id.item1:
+                Toast.makeText(this,"open saved photos ",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(MainActivity.this,Gallery.class);
+                startActivity(intent);
+              return true;
+            case R.id.item2:
+                Toast.makeText(this,"Rate us",Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.item3:
+                Toast.makeText(this,"About us",Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
 
     }
 }
