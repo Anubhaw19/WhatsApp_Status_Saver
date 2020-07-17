@@ -3,12 +3,15 @@ package com.example.whatsappstatussaver;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.ThumbnailUtils;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
@@ -65,11 +68,7 @@ public class Gallery extends AppCompatActivity {
                 public void run() {
                     //listing all status files present in the [WhatsApp/Media/.Statuses] folder.
                     File[] statusFiles = MyConstants.STATUS.listFiles();
-                    if(statusFiles.length==0) //checking empty files. test comment added
-                    {
-                        Toast.makeText(Gallery.this,"Nothing is Saved",Toast.LENGTH_LONG).show();
 
-                    }
 
                     if (statusFiles != null && statusFiles.length > 0) {
                         Arrays.sort(statusFiles);
@@ -103,6 +102,11 @@ public class Gallery extends AppCompatActivity {
                 }
             }).start();
         }
+        else
+        {
+            Toast.makeText(Gallery.this,"Nothing is Saved",Toast.LENGTH_LONG).show();
+            progressBar.setVisibility(View.GONE);
+        }
     }
 
     private Bitmap getThumbNail(StatusModel statusModel) {
@@ -117,7 +121,20 @@ public class Gallery extends AppCompatActivity {
 
     public void click(StatusModel statusModel)
     {
-            Toast.makeText(this,"click",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"share",Toast.LENGTH_SHORT).show();
+
+        Uri imgUri = FileProvider.getUriForFile(this, this.getApplicationContext().getPackageName() + ".provider", statusModel.getFile());
+        Intent Intent = new Intent(android.content.Intent.ACTION_SEND);
+        Intent.putExtra(Intent.EXTRA_STREAM, imgUri);
+        Intent.setType("image/jpeg");
+        Intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+        try {
+            startActivity(Intent);
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+        }
     }
+
 
 }

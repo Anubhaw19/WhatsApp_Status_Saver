@@ -28,7 +28,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:src="@drawable/ic_download"
-                android:background="#fcbf49"
+                android:background="#ffffff"
                 android:padding="@dimen/_2sdp"/>
 
         </RelativeLayout>

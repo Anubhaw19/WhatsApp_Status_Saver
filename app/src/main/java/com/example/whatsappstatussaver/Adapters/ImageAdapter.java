@@ -11,9 +11,11 @@ import android.widget.ImageView;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.whatsappstatussaver.Fragments.ImageFragment;
+import com.example.whatsappstatussaver.Gallery;
 import com.example.whatsappstatussaver.Models.StatusModel;
 import com.example.whatsappstatussaver.R;
 
@@ -63,7 +65,8 @@ ImageFragment imageFragment;
             imageButton_download.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    imageButton_download.setBackgroundResource(R.drawable.ic_done);
+                     imageButton_download.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_done));
+                    //imageButton_download.setBackgroundResource(R.drawable.ic_done);
                     StatusModel statusModel=imageList.get(getAdapterPosition());
                     if(statusModel !=null)
                     {
