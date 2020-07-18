@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.InterstitialAd;
 import com.test.whatsappstatussaver.Adapters.PagerAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -33,6 +34,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
 
     private AdView mAdView;
+    private InterstitialAd mInterstitialAd;
+
     Handler handler=new Handler();
     private static final String TAG = "MyTag";
 
@@ -53,9 +56,14 @@ public class MainActivity extends AppCompatActivity {
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
+        //Banner Ads
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        //Interstitial Ads
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
 
         ButterKnife.bind(this);
@@ -149,6 +157,11 @@ public class MainActivity extends AppCompatActivity {
         {
             case R.id.item1:
                 Toast.makeText(this,"open saved gallery ",Toast.LENGTH_SHORT).show();
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Log.d("TAG", "The interstitial wasn't loaded yet.");
+                }
              handler.postDelayed(new Runnable() {
                  @Override
                  public void run() {
