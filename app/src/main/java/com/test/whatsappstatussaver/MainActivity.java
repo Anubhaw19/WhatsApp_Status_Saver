@@ -1,4 +1,4 @@
-package com.example.whatsappstatussaver;
+package com.test.whatsappstatussaver;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,10 +16,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Switch;
 import android.widget.Toast;
 
-import com.example.whatsappstatussaver.Adapters.PagerAdapter;
+import com.google.android.gms.ads.AdListener;
+import com.test.whatsappstatussaver.Adapters.PagerAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AdView mAdView;
     Handler handler=new Handler();
+    private static final String TAG = "MyTag";
 
 @BindView(R.id.main_toolbar) Toolbar toolbar;
 @BindView(R.id.tab_layout) TabLayout tabLayout;
@@ -56,10 +57,51 @@ public class MainActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
+        viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager(),1,this));
         tabLayout.setupWithViewPager(viewPager);
+
+        mAdView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                Log.d(TAG, "onAdFailedToLoad: ");
+                // Code to be executed when an ad request fails.
+            }
+
+            @Override
+            public void onAdOpened() {
+                Log.d(TAG, "onAdOpened: ");
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+
+            @Override
+            public void onAdClicked() {
+                Log.d(TAG, "onAdClicked: ");
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                Log.d(TAG, "onAdLeftApplication: ");
+                // Code to be executed when the user has left the app.
+            }
+
+            @Override
+            public void onAdClosed() {
+                Log.d(TAG, "onAdClosed: ");
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+        });
+
 
     }
     private void handlePermission() {
@@ -82,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                  Toast.makeText(this, "Read Storage Granted", Toast.LENGTH_SHORT).show();
                Log.d("TAG", "Read Storage Granted");
-                viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
+                viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager(),1,this));
                 tabLayout.setupWithViewPager(viewPager);
 
             } else {

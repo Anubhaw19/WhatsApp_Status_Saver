@@ -1,6 +1,5 @@
-package com.example.whatsappstatussaver;
+package com.test.whatsappstatussaver;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
@@ -17,14 +16,11 @@ import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.whatsappstatussaver.Adapters.GalleryAdapter;
-import com.example.whatsappstatussaver.Adapters.ImageAdapter;
-import com.example.whatsappstatussaver.Fragments.ImageFragment;
-import com.example.whatsappstatussaver.Models.StatusModel;
-import com.example.whatsappstatussaver.Utils.MyConstants;
+import com.test.whatsappstatussaver.Adapters.GalleryAdapter;
+import com.test.whatsappstatussaver.Models.StatusModel;
+import com.test.whatsappstatussaver.Utils.MyConstants;
 
 import java.io.File;
 import java.util.ArrayList;

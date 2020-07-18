@@ -1,4 +1,4 @@
-package com.example.whatsappstatussaver;
+package com.test.whatsappstatussaver;
 
 import org.junit.Test;
 

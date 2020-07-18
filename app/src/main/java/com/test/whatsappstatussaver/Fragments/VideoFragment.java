@@ -1,4 +1,4 @@
-package com.example.whatsappstatussaver.Fragments;
+package com.test.whatsappstatussaver.Fragments;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -21,11 +21,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.whatsappstatussaver.Adapters.ImageAdapter;
-import com.example.whatsappstatussaver.Adapters.VideoAdapter;
-import com.example.whatsappstatussaver.Models.StatusModel;
-import com.example.whatsappstatussaver.R;
-import com.example.whatsappstatussaver.Utils.MyConstants;
+import com.test.whatsappstatussaver.Adapters.VideoAdapter;
+import com.test.whatsappstatussaver.Models.StatusModel;
+import com.test.whatsappstatussaver.R;
+import com.test.whatsappstatussaver.Utils.MyConstants;
 
 import java.io.File;
 import java.io.FileInputStream;

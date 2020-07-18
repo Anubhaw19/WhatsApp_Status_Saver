@@ -1,4 +1,4 @@
-package com.example.whatsappstatussaver.Adapters;
+package com.test.whatsappstatussaver.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,10 +10,9 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.whatsappstatussaver.Fragments.ImageFragment;
-import com.example.whatsappstatussaver.Fragments.VideoFragment;
-import com.example.whatsappstatussaver.Models.StatusModel;
-import com.example.whatsappstatussaver.R;
+import com.test.whatsappstatussaver.Fragments.VideoFragment;
+import com.test.whatsappstatussaver.Models.StatusModel;
+import com.test.whatsappstatussaver.R;
 
 import java.io.IOException;
 import java.util.List;

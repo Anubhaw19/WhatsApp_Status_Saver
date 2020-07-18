@@ -1,45 +1,39 @@
-package com.example.whatsappstatussaver.Adapters;
+package com.test.whatsappstatussaver.Adapters;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.whatsappstatussaver.Fragments.ImageFragment;
-import com.example.whatsappstatussaver.Gallery;
-import com.example.whatsappstatussaver.Models.StatusModel;
-import com.example.whatsappstatussaver.R;
+import com.test.whatsappstatussaver.Gallery;
+import com.test.whatsappstatussaver.Models.StatusModel;
+import com.test.whatsappstatussaver.R;
 
-import java.io.IOException;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
+public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ImageViewHolder> {
 private final List<StatusModel> imageList;
 Context context;
-ImageFragment imageFragment;
+Gallery gallery;
 
-    public ImageAdapter(Context context,List<StatusModel> imageList,ImageFragment imageFragment) {
+    public GalleryAdapter(Context context, List<StatusModel> imageList, Gallery gallery) {
         this.context=context;
         this.imageList = imageList;
-        this.imageFragment=imageFragment;
+        this.gallery=gallery;
     }
 
     @NonNull
     @Override
     public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view= LayoutInflater.from(context).inflate(R.layout.item_status,parent,false);
+       View view= LayoutInflater.from(context).inflate(R.layout.item_gallery,parent,false);
        return new ImageViewHolder(view);
     }
 
@@ -65,16 +59,11 @@ ImageFragment imageFragment;
             imageButton_download.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                     imageButton_download.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_done));
-                    //imageButton_download.setBackgroundResource(R.drawable.ic_done);
+
                     StatusModel statusModel=imageList.get(getAdapterPosition());
                     if(statusModel !=null)
                     {
-                        try {
-                            imageFragment.downloadImage(statusModel);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                        gallery.click(statusModel);
                     }
 
                 }
