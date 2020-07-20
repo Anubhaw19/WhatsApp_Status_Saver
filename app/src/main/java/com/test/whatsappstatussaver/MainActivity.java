@@ -178,6 +178,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.item3:
                 Toast.makeText(this,"About us",Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.item4:
+                Toast.makeText(this,"Feedback",Toast.LENGTH_SHORT).show();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
 
