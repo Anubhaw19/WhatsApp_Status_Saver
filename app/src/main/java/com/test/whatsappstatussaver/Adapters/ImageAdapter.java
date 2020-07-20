@@ -58,6 +58,16 @@ ImageFragment imageFragment;
 
             super(itemView);
             ButterKnife.bind(this,itemView);
+            imageView_thumbnail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    StatusModel statusModel=imageList.get(getAdapterPosition());
+                    if(statusModel !=null)
+                    {
+                        imageFragment.watch(statusModel);
+                    }
+                }
+            });
             imageButton_download.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

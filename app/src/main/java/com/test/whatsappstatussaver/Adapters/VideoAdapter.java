@@ -57,6 +57,16 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
 
             super(itemView);
             ButterKnife.bind(this,itemView);
+            imageView_thumbnail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    StatusModel statusModel=videoList.get(getAdapterPosition());
+                    if(statusModel !=null)
+                    {
+                        videoFragment.watch(statusModel);
+                    }
+                }
+            });
             imageButton_download.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

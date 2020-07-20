@@ -133,4 +133,10 @@ public class Gallery extends AppCompatActivity {
     }
 
 
+    public void watch(StatusModel statusModel) {
+
+        Intent intent=new Intent(Gallery.this,Activity_VideoPlayer.class);
+        intent.putExtra("path",statusModel.getPath());
+        startActivity(intent);
+    }
 }

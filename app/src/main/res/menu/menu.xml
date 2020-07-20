@@ -13,7 +13,12 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/item3"
-        android:title="about us"
+        android:title="About us"
+        android:icon="@drawable/ic_save"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/item4"
+        android:title="Feedback"
         android:icon="@drawable/ic_save"
         app:showAsAction="never"/>
 

@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.test.whatsappstatussaver.Activity_VideoPlayer;
 import com.test.whatsappstatussaver.Adapters.VideoAdapter;
 import com.test.whatsappstatussaver.Models.StatusModel;
 import com.test.whatsappstatussaver.R;
@@ -159,5 +160,11 @@ public class VideoFragment extends Fragment {
 
         source.close();
         destination.close();
+    }
+
+    public void watch(StatusModel statusModel) {
+        Intent intent=new Intent(getContext(), Activity_VideoPlayer.class);
+        intent.putExtra("path",statusModel.getPath());
+        startActivity(intent);
     }
 }

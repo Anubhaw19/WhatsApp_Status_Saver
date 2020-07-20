@@ -20,7 +20,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.test.whatsappstatussaver.Activity_VideoPlayer;
 import com.test.whatsappstatussaver.Adapters.ImageAdapter;
+import com.test.whatsappstatussaver.Gallery;
 import com.test.whatsappstatussaver.Models.StatusModel;
 import com.test.whatsappstatussaver.R;
 import com.test.whatsappstatussaver.Utils.MyConstants;
@@ -156,4 +158,9 @@ public class ImageFragment extends Fragment {
         destination.close();
     }
 
+    public void watch(StatusModel statusModel) {
+        Intent intent=new Intent(getContext(), Activity_VideoPlayer.class);
+        intent.putExtra("path",statusModel.getPath());
+        startActivity(intent);
+    }
 }
