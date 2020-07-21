@@ -7,8 +7,10 @@ import androidx.core.app.ActivityCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     Handler handler=new Handler();
     private static final String TAG = "MyTag";
+    static  final  String facebook_link="https://www.facebook.com/teamvoyagerfb";
 
 @BindView(R.id.main_toolbar) Toolbar toolbar;
 @BindView(R.id.tab_layout) TabLayout tabLayout;
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
         //Interstitial Ads
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.setAdUnitId("ca-app-pub-5098396899135570/5155019605");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
 
@@ -174,12 +177,15 @@ public class MainActivity extends AppCompatActivity {
               return true;
             case R.id.item2:
                 Toast.makeText(this,"Rate us",Toast.LENGTH_SHORT).show();
+                openBrowser();
                 return true;
             case R.id.item3:
                 Toast.makeText(this,"About us",Toast.LENGTH_SHORT).show();
+                openBrowser();
                 return true;
             case R.id.item4:
                 Toast.makeText(this,"Feedback",Toast.LENGTH_SHORT).show();
+                openBrowser();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -187,4 +193,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    private void openBrowser() {
+        try {
+            Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(facebook_link));
+            startActivity(myIntent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, "No application can handle this request."
+                    + " Please install a webbrowser",  Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+    }
+
 }

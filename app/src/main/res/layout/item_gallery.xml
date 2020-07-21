@@ -3,12 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/_120sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="@dimen/_10sdp"
-    android:layout_margin="@dimen/_10sdp">
+    app:cardCornerRadius="@dimen/_2sdp"
+    android:layout_margin="@dimen/_5sdp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="@dimen/_4sdp"
+        android:background="#FFFFFF">
 
         <RelativeLayout
             android:id="@+id/relative_layout"
@@ -31,6 +33,14 @@
                 android:background="#ffffff"
                 android:padding="@dimen/_2sdp"
                 android:elevation="@dimen/_10sdp"/>
+            <ImageView
+                android:id="@+id/imageView_play"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/play"
+                android:layout_centerInParent="true"
+                android:visibility="invisible"
+                />
 
         </RelativeLayout>
     </RelativeLayout>

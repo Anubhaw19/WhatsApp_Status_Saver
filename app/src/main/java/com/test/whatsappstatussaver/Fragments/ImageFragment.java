@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -65,6 +66,8 @@ public class ImageFragment extends Fragment {
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+
+
         getStatus();
     }
 
@@ -94,6 +97,7 @@ public class ImageFragment extends Fragment {
                                 imageAdapter = new ImageAdapter(getContext(), imageModelArrayList, ImageFragment.this);
                                 recyclerView.setAdapter(imageAdapter);
                                 imageAdapter.notifyDataSetChanged();
+
                             }
                         });
                     } else {
@@ -162,5 +166,21 @@ public class ImageFragment extends Fragment {
         Intent intent=new Intent(getContext(), Activity_VideoPlayer.class);
         intent.putExtra("path",statusModel.getPath());
         startActivity(intent);
+    }
+
+    public void share(StatusModel statusModel) {
+        Toast.makeText(getContext(),"share",Toast.LENGTH_SHORT).show();
+
+        Uri imgUri = FileProvider.getUriForFile(getContext(), this.getContext().getPackageName() + ".provider", statusModel.getFile());
+        Intent Intent = new Intent(android.content.Intent.ACTION_SEND);
+        Intent.putExtra(Intent.EXTRA_STREAM, imgUri);
+        Intent.setType("image/jpeg");
+        Intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+        try {
+            startActivity(Intent);
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+        }
     }
 }

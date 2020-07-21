@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="@drawable/app_background"
+    android:background="#012"
     android:alpha="1">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -52,7 +52,7 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+            ads:adUnitId="ca-app-pub-5098396899135570/7112929102">
         </com.google.android.gms.ads.AdView>
 
 

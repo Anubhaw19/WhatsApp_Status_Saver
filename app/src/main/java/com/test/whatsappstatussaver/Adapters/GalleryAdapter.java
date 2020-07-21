@@ -52,10 +52,24 @@ Gallery gallery;
 
         @BindView(R.id.imageView_thumbnail) ImageView imageView_thumbnail;
         @BindView(R.id.btn_savetoGallery) ImageButton imageButton_download;
+        @BindView(R.id.imageView_play) ImageView imageView_play;
         public ImageViewHolder(@NonNull View itemView) {
 
             super(itemView);
             ButterKnife.bind(this,itemView);
+//            StatusModel statusModel=imageList.get(getAdapterPosition());
+//            if(statusModel !=null)
+//            {
+//               if(statusModel.getPath().contains(".mp4"))
+//               {
+//                   imageView_play.setVisibility(View.VISIBLE);
+//               }
+//               else
+//               {
+//                   imageView_play.setVisibility(View.INVISIBLE);
+//               }
+//            }
+
             imageView_thumbnail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -73,7 +87,7 @@ Gallery gallery;
                     StatusModel statusModel=imageList.get(getAdapterPosition());
                     if(statusModel !=null)
                     {
-                        gallery.click(statusModel);
+                        gallery.share(statusModel);
                     }
 
                 }
