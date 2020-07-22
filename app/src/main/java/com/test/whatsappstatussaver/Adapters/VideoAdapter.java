@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -52,7 +53,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
 
     public class VideoViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.imageView_thumbnail) ImageView imageView_thumbnail;
-        @BindView(R.id.btn_savetoGallery) ImageButton imageButton_download;
+        @BindView(R.id.btn_savetoGallery)
+        Button imageButton_download;
         public VideoViewHolder(@NonNull View itemView) {
 
             super(itemView);

@@ -2,21 +2,24 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_120sdp"
-    android:layout_margin="@dimen/_5sdp"
+    android:layout_height="240dp"
+    android:layout_marginHorizontal="@dimen/_5sdp"
+    android:layout_marginVertical="10dp"
+    android:elevation="5dp"
     app:cardCornerRadius="@dimen/_2sdp">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
-        android:padding="@dimen/_4sdp">
+        >
 
 
         <RelativeLayout
             android:id="@+id/relative_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="200dp">
 
             <ImageView
                 android:id="@+id/imageView_thumbnail"
@@ -24,16 +27,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop" />
 
-            <ImageButton
-                android:id="@+id/btn_savetoGallery"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:background="#ffffff"
-                android:padding="@dimen/_2sdp"
-                android:src="@drawable/ic_download" />
+
 
             <ImageButton
                 android:id="@+id/btn_share"
@@ -43,11 +37,23 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
                 android:background="#ffffff"
-                android:padding="@dimen/_2sdp"
                 android:src="@drawable/share" />
 
 
         </RelativeLayout>
-    </RelativeLayout>
+        <Button
+            android:id="@+id/btn_savetoGallery"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Save"
+            android:textSize="18dp"
+            android:paddingLeft="10dp"
+            android:drawableLeft="@drawable/ic_download"
+            android:gravity="center"
+            android:textColor="#ffffff"
+
+            android:textAllCaps="false"
+            android:src="@drawable/ic_download" />
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

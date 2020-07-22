@@ -9,39 +9,79 @@
     android:background="#012"
     android:alpha="1">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBar_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:id="@+id/appBar_layout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        >-->
 
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background=" #075e54"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            android:id="@+id/main_toolbar"/>
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background=" #075e54"-->
+<!--            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+<!--            android:id="@+id/main_toolbar"/>-->
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabIndicatorColor="#fff"
-            app:tabIndicatorHeight="2dp"
-            app:tabSelectedTextColor="#fff"
-            android:background="#075e54" />
+<!--        <com.google.android.material.tabs.TabLayout-->
+<!--            android:id="@+id/tab_layout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:tabIndicatorColor="#fff"-->
+<!--            app:tabIndicatorHeight="2dp"-->
+<!--            app:tabSelectedTextColor="#fff"-->
+<!--            android:background="#075e54" />-->
 
-    </com.google.android.material.appbar.AppBarLayout>
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager"
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-           android:layout_above="@+id/adView"
-            />
+            android:layout_height="wrap_content"
+            >
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background=" #075e54"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                android:id="@+id/main_toolbar"/>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabIndicatorColor="#fff"
+                app:tabIndicatorHeight="2dp"
+                app:tabSelectedTextColor="#fff"
+                android:background="#075e54" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_marginTop="56dp"
+            android:id="@+id/screen"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<!--            <Space-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="96dp"/>-->
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/appBar_layout"
+                android:layout_above="@+id/adView"
+                />
+
+        </LinearLayout>
 
         <com.google.android.gms.ads.AdView
             xmlns:ads="http://schemas.android.com/apk/res-auto"

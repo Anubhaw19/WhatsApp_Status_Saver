@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -55,7 +56,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         @BindView(R.id.imageView_thumbnail)
         ImageView imageView_thumbnail;
         @BindView(R.id.btn_savetoGallery)
-        ImageButton imageButton_download;
+        Button imageButton_download;
         @BindView(R.id.btn_share)
         ImageButton share_btn;
 
@@ -84,7 +85,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             imageButton_download.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    imageButton_download.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_done));
+//                    imageButton_download.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_done));
                     //imageButton_download.setBackgroundResource(R.drawable.ic_done);
                     StatusModel statusModel = imageList.get(getAdapterPosition());
                     if (statusModel != null) {
