@@ -31,8 +31,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:src="@drawable/share"
-                android:background="#ffffff"
-                android:padding="@dimen/_2sdp"
+                android:background="@drawable/btn_background"
+                android:padding="@dimen/_3sdp"
                 android:elevation="@dimen/_10sdp"/>
             <ImageView
                 android:id="@+id/imageView_play"

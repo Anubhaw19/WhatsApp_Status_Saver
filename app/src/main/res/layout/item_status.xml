@@ -19,7 +19,8 @@
         <RelativeLayout
             android:id="@+id/relative_layout"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="200dp"
+            android:layout_margin="@dimen/_5sdp">
 
             <ImageView
                 android:id="@+id/imageView_thumbnail"
@@ -36,8 +37,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:background="#ffffff"
-                android:src="@drawable/share" />
+                android:background="@drawable/btn_background"
+                android:src="@drawable/share"
+                android:padding="@dimen/_3sdp"
+                />
             <ImageView
                 android:id="@+id/imageView_play"
                 android:layout_width="@dimen/_40sdp"
