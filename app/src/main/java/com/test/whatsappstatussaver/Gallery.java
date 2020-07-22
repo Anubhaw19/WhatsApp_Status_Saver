@@ -71,17 +71,14 @@ public class Gallery extends AppCompatActivity {
                     //listing all status files present in the [WhatsApp/Media/.Statuses] folder.
                     File[] statusFiles = MyConstants.STATUS.listFiles();
 
-
                     if (statusFiles != null && statusFiles.length > 0) {
                         Arrays.sort(statusFiles);
                         for (final File status : statusFiles) {
                             StatusModel statusModel = new StatusModel(status, status.getName(), status.getAbsolutePath());
 
                             statusModel.setThumbnail(getThumbNail(statusModel));
-
-                            //if (!statusModel.isVideo()) {
                                 imageModelArrayList.add(statusModel);
-                          //  }
+
                         }
                         handler.post(new Runnable() {
                             @Override

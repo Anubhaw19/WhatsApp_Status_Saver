@@ -17,9 +17,10 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 setContentView(R.layout.activity_splash);
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();
             }
-        },10);
+        },2000);
 
     }
 }
