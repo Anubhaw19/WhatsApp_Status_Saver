@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 app:tabIndicatorColor="#fff"
                 app:tabIndicatorHeight="2dp"
-                app:tabSelectedTextColor="#fff"
+                app:tabSelectedTextColor="#000000"
                 android:background="#075e54" />
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -69,7 +69,8 @@
             android:id="@+id/screen"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
 <!--            <Space-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="96dp"/>-->

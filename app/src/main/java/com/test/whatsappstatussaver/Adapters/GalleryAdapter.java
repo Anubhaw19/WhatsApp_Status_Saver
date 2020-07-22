@@ -40,6 +40,17 @@ Gallery gallery;
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
         StatusModel statusModel=imageList.get(position);
+        if(statusModel!=null)
+        {
+            if(statusModel.getPath().contains(".mp4"))
+            {
+                holder.imageView_play.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                holder.imageView_play.setVisibility(View.INVISIBLE);
+            }
+        }
         holder.imageView_thumbnail.setImageBitmap(statusModel.getThumbnail());
     }
 

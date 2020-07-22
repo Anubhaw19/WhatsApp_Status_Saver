@@ -44,6 +44,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
     public void onBindViewHolder(@NonNull VideoViewHolder holder, int position) {
         StatusModel statusModel=videoList.get(position);
         holder.imageView_thumbnail.setImageBitmap(statusModel.getThumbnail());
+        if(statusModel !=null)
+        {
+            holder.imageView_play.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -53,6 +57,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
 
     public class VideoViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.imageView_thumbnail) ImageView imageView_thumbnail;
+        @BindView(R.id.imageView_play) ImageView imageView_play;
         @BindView(R.id.btn_savetoGallery)
         Button imageButton_download;
         public VideoViewHolder(@NonNull View itemView) {
