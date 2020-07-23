@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -36,6 +37,9 @@ import butterknife.ButterKnife;
 
 public class Gallery extends AppCompatActivity {
     static  final  String facebook_link="https://www.facebook.com/teamvoyagerfb";
+    private  ArrayList<String> selected=new ArrayList<String >();
+    File file = null;
+
     @BindView(R.id.recylerView)
     RecyclerView recyclerView;
     @BindView(R.id.proBar)
@@ -94,7 +98,7 @@ public class Gallery extends AppCompatActivity {
                             @Override
                             public void run() {
                                 progressBar.setVisibility(View.GONE);
-                                Toast.makeText(Gallery.this, "directory not found", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Gallery.this, "Nothing is Saved", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -156,9 +160,32 @@ public class Gallery extends AppCompatActivity {
         switch(item.getItemId())
         {
             case R.id.item1:
-                Toast.makeText(this,"delete ",Toast.LENGTH_SHORT).show();
 
+                if(!selected.isEmpty())
+                {
+                    for(int i=0;i<selected.size();i++)
+                    {
+                        file=new File(selected.get(i));
+                        if(file.exists())
+                        {
+                            file.delete();
+                            Toast.makeText(this,"items deleted",Toast.LENGTH_SHORT).show();
 
+//                            imageModelArrayList = new ArrayList<>();
+//                            recyclerView.setHasFixedSize(true);
+//                            recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+                           // getStatus();
+                        }
+                        else
+                        {
+                            Toast.makeText(this,"file doesn't exist",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                else
+                {
+                    Toast.makeText(this," please select items ",Toast.LENGTH_LONG).show();
+                }
                 return true;
             case R.id.item2:
                 Toast.makeText(this,"Rate us",Toast.LENGTH_SHORT).show();
@@ -183,8 +210,15 @@ public class Gallery extends AppCompatActivity {
             Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(facebook_link));
             startActivity(myIntent);
         } catch (ActivityNotFoundException e) {
-            Toast.makeText(this," Please install a webbrowser",  Toast.LENGTH_LONG).show();
+            Toast.makeText(this," Please install a web browser",  Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
+    }
+
+
+
+    public void selectedItems(ArrayList<String> selected_items) {
+        selected.clear();
+        selected.addAll(selected_items);
     }
 }
