@@ -1,4 +1,4 @@
-package com.test.whatsappstatussaver.Adapters;
+package com.teamvoyager.whatsappstatussaver.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,12 +9,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.test.whatsappstatussaver.Fragments.ImageFragment;
-import com.test.whatsappstatussaver.Models.StatusModel;
-import com.test.whatsappstatussaver.R;
+import com.teamvoyager.whatsappstatussaver.Fragments.ImageFragment;
+import com.teamvoyager.whatsappstatussaver.Models.StatusModel;
+import com.teamvoyager.whatsappstatussaver.R;
 
 import java.io.IOException;
 import java.util.List;

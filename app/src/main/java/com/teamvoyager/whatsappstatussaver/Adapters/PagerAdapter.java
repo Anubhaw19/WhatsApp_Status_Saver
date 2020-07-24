@@ -1,4 +1,4 @@
-package com.test.whatsappstatussaver.Adapters;
+package com.teamvoyager.whatsappstatussaver.Adapters;
 
 import android.content.Context;
 
@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.test.whatsappstatussaver.Fragments.ImageFragment;
-import com.test.whatsappstatussaver.Fragments.VideoFragment;
+import com.teamvoyager.whatsappstatussaver.Fragments.ImageFragment;
+import com.teamvoyager.whatsappstatussaver.Fragments.VideoFragment;
 
 public class PagerAdapter extends FragmentPagerAdapter {
 

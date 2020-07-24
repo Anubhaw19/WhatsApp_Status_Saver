@@ -1,4 +1,4 @@
-package com.test.whatsappstatussaver;
+package com.teamvoyager.whatsappstatussaver;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,15 +37,15 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.material.appbar.AppBarLayout;
-import com.test.whatsappstatussaver.Adapters.PagerAdapter;
+import com.teamvoyager.whatsappstatussaver.Adapters.PagerAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.tabs.TabLayout;
-import com.test.whatsappstatussaver.Fragments.ImageFragment;
-import com.test.whatsappstatussaver.Fragments.VideoFragment;
+import com.teamvoyager.whatsappstatussaver.Fragments.ImageFragment;
+import com.teamvoyager.whatsappstatussaver.Fragments.VideoFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -245,7 +245,7 @@ public class MainActivity extends AppCompatActivity implements ImageFragment.Tri
                     public void run() {
                         Intent intent = new Intent(MainActivity.this, Gallery.class);
                         startActivity(intent);
-                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                       // overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     }
                 }, 0);
 

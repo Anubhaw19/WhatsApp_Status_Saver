@@ -1,4 +1,4 @@
-package com.test.whatsappstatussaver.Models;
+package com.teamvoyager.whatsappstatussaver.Models;
 
 import android.graphics.Bitmap;
 

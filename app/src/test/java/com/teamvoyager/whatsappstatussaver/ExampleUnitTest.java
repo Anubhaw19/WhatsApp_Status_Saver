@@ -1,4 +1,4 @@
-package com.test.whatsappstatussaver;
+package com.teamvoyager.whatsappstatussaver;
 
 import org.junit.Test;
 

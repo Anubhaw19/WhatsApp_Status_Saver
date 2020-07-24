@@ -1,4 +1,4 @@
-package com.test.whatsappstatussaver;
+package com.teamvoyager.whatsappstatussaver;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +12,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.MediaController;
-import android.widget.TextView;
 import android.widget.VideoView;
 
 public class Activity_VideoPlayer extends AppCompatActivity implements View.OnTouchListener {

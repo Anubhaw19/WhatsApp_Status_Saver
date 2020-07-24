@@ -1,4 +1,4 @@
-package com.test.whatsappstatussaver.Fragments;
+package com.teamvoyager.whatsappstatussaver.Fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -23,25 +23,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.renderscript.Allocation;
+import androidx.renderscript.Element;
+import androidx.renderscript.RenderScript;
+import androidx.renderscript.ScriptIntrinsicBlur;
 
-import com.test.whatsappstatussaver.Activity_VideoPlayer;
-import com.test.whatsappstatussaver.Adapters.ImageAdapter;
-import com.test.whatsappstatussaver.Gallery;
-import com.test.whatsappstatussaver.Models.StatusModel;
-import com.test.whatsappstatussaver.R;
-import com.test.whatsappstatussaver.Utils.MyConstants;
+import com.teamvoyager.whatsappstatussaver.Activity_VideoPlayer;
+import com.teamvoyager.whatsappstatussaver.Adapters.VideoAdapter;
+import com.teamvoyager.whatsappstatussaver.Models.StatusModel;
+import com.teamvoyager.whatsappstatussaver.R;
+import com.teamvoyager.whatsappstatussaver.Utils.MyConstants;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -53,46 +54,14 @@ import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.core.graphics.drawable.RoundedBitmapDrawable;
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.renderscript.Allocation;
-import androidx.renderscript.Element;
-import androidx.renderscript.RenderScript;
-import androidx.renderscript.ScriptIntrinsicBlur;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.LightingColorFilter;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
+public class VideoFragment extends Fragment {
 
-public class ImageFragment extends Fragment {
-
-    @BindView(R.id.recylerView)
-    RecyclerView recyclerView;
-    @BindView(R.id.proBar)
-    ProgressBar progressBar;
-
-    ArrayList<StatusModel> imageModelArrayList;
-    Handler handler = new Handler();
-    ImageAdapter imageAdapter;
-
-
-
+    @BindView(R.id.recylerView_vedio) RecyclerView recyclerView;
+    @BindView(R.id.proBar_vedio) ProgressBar progressBar;
+    ArrayList<StatusModel> videoModelArrayList;
+    Handler handler=new Handler();
+    VideoAdapter videoAdapter;
 
     Bitmap mBlurredBitmap = null;
     Bitmap mBitmap1 = null;
@@ -100,35 +69,36 @@ public class ImageFragment extends Fragment {
     RenderScript rs;
     View v1;
     View v2;
-    Trigger trigger;
     private static final String TAG = "MyTag";
+    TriggerVF triggerVF;
+
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        trigger= (Trigger) context;
+        triggerVF= (TriggerVF) context;
+
     }
+
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_image, container, false);
-        return view;
+        View view=inflater.inflate(R.layout.fragment_vedio,container,false);
+        return  view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.bind(this, view);
-
-        imageModelArrayList = new ArrayList<>();
-
+        ButterKnife.bind(this,view);
+        videoModelArrayList=new ArrayList<>();
         recyclerView.setHasFixedSize(true);
         GridLayoutManager manager=new GridLayoutManager(getActivity(), 2);
         recyclerView.setLayoutManager(manager);
+        getStatusVideo();
 
-
-        getStatus();
 
         v1 = view.findViewById(R.id.imgBg);
         rs = RenderScript.create(getContext());
@@ -161,7 +131,7 @@ public class ImageFragment extends Fragment {
 //                    setBackgroundOnView(v2, mBitmap2);
 
                 }
-                trigger.triggerEvent();
+                triggerVF.triggerEventVF();
 
 
             }
@@ -169,41 +139,47 @@ public class ImageFragment extends Fragment {
 
     }
 
-    private void getStatus() { //this is the code for searching for status files.
-        if (MyConstants.STATUS_DIRECTORY.exists()) {
+    private void getStatusVideo() { //this is the code for searching for status files.(almost same as searching image.)
+
+        if(MyConstants.STATUS_DIRECTORY.exists())
+        {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     //listing all status files present in the [WhatsApp/Media/.Statuses] folder.
-                    File[] statusFiles = MyConstants.STATUS_DIRECTORY.listFiles();
+                    File[] statusFiles= MyConstants.STATUS_DIRECTORY.listFiles();
 
-                    if (statusFiles != null && statusFiles.length > 0) {
+                    if(statusFiles !=null && statusFiles.length>0)
+                    {
                         Arrays.sort(statusFiles);
-                        for (final File status : statusFiles) {
-                            StatusModel statusModel = new StatusModel(status, status.getName(), status.getAbsolutePath());
+                        for(final File status : statusFiles)
+                        {
+                            StatusModel statusModel=new StatusModel(status,status.getName(),status.getAbsolutePath());
 
                             statusModel.setThumbnail(getThumbNail(statusModel));
 
-                            if (!statusModel.isVideo()) {
-                                imageModelArrayList.add(statusModel);
+                            if(statusModel.isVideo())
+                            {
+                                videoModelArrayList.add(statusModel);
+                                Log.d("inside video=", "run: status model ");
                             }
                         }
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
                                 progressBar.setVisibility(View.GONE);
-                                imageAdapter = new ImageAdapter(getContext(), imageModelArrayList, ImageFragment.this);
-                                recyclerView.setAdapter(imageAdapter);
-                                imageAdapter.notifyDataSetChanged();
-
+                                videoAdapter=new VideoAdapter(getContext(),videoModelArrayList, VideoFragment.this);
+                                recyclerView.setAdapter(videoAdapter);
+                                videoAdapter.notifyDataSetChanged();
                             }
                         });
-                    } else {
+                    }
+                    else {
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
                                 progressBar.setVisibility(View.GONE);
-                                Toast.makeText(getContext(), "directory not found", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(),"directory not found",Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -213,16 +189,19 @@ public class ImageFragment extends Fragment {
     }
 
     private Bitmap getThumbNail(StatusModel statusModel) {
-        if (statusModel.isVideo()) {/**[MediaStore.Video.Thumbnails.MICRO_KIND] this is deprecated*/
+        if(statusModel.isVideo())
+        {/**[MediaStore.Video.Thumbnails.MICRO_KIND] this is deprecated*/
             return ThumbnailUtils.createVideoThumbnail(String.valueOf(statusModel.getFile().getAbsoluteFile()),
                     MediaStore.Video.Thumbnails.MICRO_KIND);
-        } else {
+        }
+        else
+        {
             return ThumbnailUtils.extractThumbnail(BitmapFactory.decodeFile(statusModel.getFile().getAbsolutePath()),
-                    MyConstants.THUMBSIZE, MyConstants.THUMBSIZE);
+                    MyConstants.THUMBSIZE,MyConstants.THUMBSIZE);
         }
     }
 
-    public void downloadImage(StatusModel statusModel) throws IOException {
+    public void downloadVideo(StatusModel statusModel) throws IOException {
         File file = new File(MyConstants.APP_DIRECTORY);
         if (!file.exists()) {
             file.mkdirs(); //create new file.
@@ -264,22 +243,6 @@ public class ImageFragment extends Fragment {
         Intent intent=new Intent(getContext(), Activity_VideoPlayer.class);
         intent.putExtra("path",statusModel.getPath());
         startActivity(intent);
-    }
-
-    public void share(StatusModel statusModel) {
-        Toast.makeText(getContext(),"share",Toast.LENGTH_SHORT).show();
-
-        Uri imgUri = FileProvider.getUriForFile(getContext(), this.getContext().getPackageName() + ".provider", statusModel.getFile());
-        Intent Intent = new Intent(android.content.Intent.ACTION_SEND);
-        Intent.putExtra(Intent.EXTRA_STREAM, imgUri);
-        Intent.setType("image/jpeg");
-        Intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-        try {
-            startActivity(Intent);
-        } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
-        }
     }
 
 
@@ -390,8 +353,7 @@ public class ImageFragment extends Fragment {
         output.copyTo(bitmap2);
     }
 
-    public interface Trigger{
-        void triggerEvent();
+    public interface TriggerVF{
+        void triggerEventVF();
     }
-
 }

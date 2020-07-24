@@ -1,4 +1,4 @@
-package com.test.whatsappstatussaver;
+package com.teamvoyager.whatsappstatussaver;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +16,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,9 +23,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.test.whatsappstatussaver.Adapters.GalleryAdapter;
-import com.test.whatsappstatussaver.Models.StatusModel;
-import com.test.whatsappstatussaver.Utils.MyConstants;
+import com.teamvoyager.whatsappstatussaver.Adapters.GalleryAdapter;
+import com.teamvoyager.whatsappstatussaver.Models.StatusModel;
+import com.teamvoyager.whatsappstatussaver.Utils.MyConstants;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -171,10 +170,6 @@ public class Gallery extends AppCompatActivity {
                             file.delete();
                             Toast.makeText(this,"items deleted",Toast.LENGTH_SHORT).show();
 
-//                            imageModelArrayList = new ArrayList<>();
-//                            recyclerView.setHasFixedSize(true);
-//                            recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
-                           // getStatus();
                         }
                         else
                         {
