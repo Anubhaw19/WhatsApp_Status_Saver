@@ -80,6 +80,7 @@ public class Gallery extends AppCompatActivity {
                             StatusModel statusModel = new StatusModel(status, status.getName(), status.getAbsolutePath());
 
                             statusModel.setThumbnail(getThumbNail(statusModel));
+
                                 imageModelArrayList.add(statusModel);
 
                         }
@@ -169,13 +170,17 @@ public class Gallery extends AppCompatActivity {
                         {
                             file.delete();
                             Toast.makeText(this,"items deleted",Toast.LENGTH_SHORT).show();
-
                         }
                         else
                         {
                             Toast.makeText(this,"file doesn't exist",Toast.LENGTH_SHORT).show();
                         }
                     }
+                    imageModelArrayList.clear();
+                    galleryAdapter = new GalleryAdapter(Gallery.this, imageModelArrayList, Gallery.this);
+                    recyclerView.setAdapter(galleryAdapter);
+                    galleryAdapter.notifyDataSetChanged();
+                    getStatus();
                 }
                 else
                 {
