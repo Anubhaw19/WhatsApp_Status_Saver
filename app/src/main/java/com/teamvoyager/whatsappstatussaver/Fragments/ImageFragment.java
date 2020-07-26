@@ -162,7 +162,11 @@ public class ImageFragment extends Fragment {
                             statusModel.setThumbnail(getThumbNail(statusModel));
 
                             if (!statusModel.isVideo()) {
-                                imageModelArrayList.add(statusModel);
+                                if(!statusModel.getTitle().equals(".nomedia"))
+                                {
+                                    imageModelArrayList.add(statusModel);
+                                }
+
                             }
                         }
                         handler.post(new Runnable() {
