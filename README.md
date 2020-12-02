@@ -30,7 +30,7 @@
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 <a href="https://www.linkedin.com/in/anubhaw-kumar-sharma-92892218b/" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="anubhaw kumar sharma" height="30" width="40" /></a>
-<a href="https://fb.com/anubhaw sharma" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/facebook.svg" alt="anubhaw sharma" height="30" width="40" /></a>
+<a href="https://www.facebook.com/profile.php?id=100005284422594" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/facebook.svg" alt="anubhaw sharma" height="30" width="40" /></a>
 <a href="https://instagram.com/sharma.anubhaw" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg" alt="sharma.anubhaw" height="30" width="40" /></a>
 <a href="https://www.codechef.com/users/anubhaw19" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/codechef.svg" alt="anubhaw19" height="30" width="40" /></a>
 <a href="https://www.hackerrank.com/anubhaw19" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/hackerrank.svg" alt="anubhaw19" height="30" width="40" /></a>
