@@ -1,11 +1,22 @@
 <h1 align="center">Hi 👋, I'm Anubhaw Kumar Sharma</h1>
-<h3 align="center">A Mining Engineer | Android App developer | vector Arts | IoT enthusiast</h3>
+<h3 align="center">A Mining Engineer | Android App developer | vector Artist | IoT enthusiast</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=anubhaw19&label=Profile%20views&color=0e75b6&style=flat" alt="anubhaw19" /> </p>
 
+<h3> 👨 About Me </h3>
+
 - Undergraduate student,pursuing B.Tech in Mining Engineering (2k18 - 22) at [BIT Sindri](https://bitsindri.ac.in/)
 
-- Vice President at [HnCC](https://hnccbits.com/)
+- Vice President at Hackathon and coding club [HnCC](https://hnccbits.com/)
+
+- Interested in Android App development
+
+- Loves to draw vector arts
+
+- My Mentors is [Sourav Paul](https://github.com/souravpaul8) and [snehal](https://github.com/snehal2398) sir.
+
+- My colleague is [Shivam Anand](https://github.com/anandshivam44)
+   
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
