@@ -13,9 +13,9 @@
 
 - Loves to draw vector arts
 
-- My Mentors is [Sourav Paul](https://github.com/souravpaul8) and [snehal](https://github.com/snehal2398) sir.
+- My Mentors are [Sourav Paul](https://github.com/souravpaul8) and [Snehal](https://github.com/snehal2398) sir.
 
-- My colleague is [Shivam Anand](https://github.com/anandshivam44)
+- My colleague is [Shivam Anand](https://github.com/anandshivam44),together we are [#Team_Voyager](https://www.facebook.com/teamvoyagerfb/)
    
 
 <h3 align="left">Connect with me:</h3>
