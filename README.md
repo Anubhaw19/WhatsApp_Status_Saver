@@ -1,11 +1,7 @@
 <h1 align="center">Hi 👋, I'm Anubhaw Kumar Sharma</h1>
 <h3 align="center">A Mining Engineer | Android App developer | vector Arts | IoT enthuast</h3>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=anubhaw19&label=Profile%20views&color=0e75b6&style=flat" alt="anubhaw19" /> </p>
-
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=anubhaw19" alt="anubhaw19" /></a> </p>
-
-<p align="left"> <a href="https://twitter.com/anubhawsharma9" target="blank"><img src="https://img.shields.io/twitter/follow/anubhawsharma9?logo=twitter&style=for-the-badge" alt="anubhawsharma9" /></a> </p>
+<h3> 👨🏻‍ About Me </h3>
 
 - 🔭 I’m currently working on ASDFasfdasf **sdfgsd**
 
